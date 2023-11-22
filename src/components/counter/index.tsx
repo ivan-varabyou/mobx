@@ -1,9 +1,12 @@
-import { observer } from "mobx-react-lite";
-import counterStore from "../../stores/counter-store";
+type Props = {
+  increment: (value: number) => void;
+  decrement: (value: number) => void;
+  count: number;
+  total: number;
+};
 
-const Counter = observer(() => {
+const Counter = ({ count, decrement, increment, total }: Props) => {
   // const [count, setCount] = useState(0);
-  const { count, decrement, increment, total } = counterStore;
 
   return (
     <>
@@ -20,6 +23,6 @@ const Counter = observer(() => {
       </p>
     </>
   );
-});
+};
 
 export default Counter;
